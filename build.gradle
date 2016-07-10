@@ -1,3 +1,5 @@
+import org.apache.tools.ant.filters.ReplaceTokens
+
 buildscript {
     ext {
         grailsVersion = project.grailsVersion
@@ -42,6 +44,7 @@ targetCompatibility = 1.7
 
 ext{
    // env=""
+    testProp=prop
 }
 
 configurations {
@@ -117,6 +120,21 @@ task wrapper(type: Wrapper) {
 assets {
     minifyJs = true
     minifyCss = true
+}
+
+processResources {
+    println "The delegate is ${delegate.getClass()}"
+    filesMatching "**/*", {
+        println "The argument is ${it.getClass()}"
+    }
+    //exclude "**/*-staging.yml"
+    filter tokens: [
+            "passed.env": project.property("testProp")
+    ],org.apache.tools.ant.filters.ReplaceTokens.class
+}
+
+exec{
+    commandLine 'cmd', '/c' ,'gradle', '-version'
 }
 
 
