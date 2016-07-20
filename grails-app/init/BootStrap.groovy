@@ -9,6 +9,7 @@ class BootStrap {
         println "The Value1 is: ${grailsApplication.config.getProperty('dataSource.env')}"
         println "The Value2 is: ${grailsApplication.config.getProperty('sample.config')}"
         println "The Value3 is: ${grailsApplication.config.getProperty('sample.config2')}"
+        println "The Value4 is: ${grailsApplication.config.getProperty('sample.env')}"
     }
     def destroy = {
     }

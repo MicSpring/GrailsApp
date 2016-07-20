@@ -1,11 +1,10 @@
 import com.groovyapp.messageconverter.amqp.CustomMessageConverter2
+import com.groovyapp.util.renderer.DemoModelRenderer
 import org.apache.activemq.ActiveMQConnectionFactory
 import org.springframework.jms.connection.JmsTransactionManager
 import org.springframework.jms.core.JmsTemplate
 import org.springframework.jms.listener.DefaultMessageListenerContainer
 import org.springframework.jms.listener.adapter.MessageListenerAdapter
-import org.springframework.transaction.PlatformTransactionManager
-import org.springframework.transaction.jta.JtaTransactionManager
 
 // Place your Spring DSL code here
 
@@ -56,5 +55,7 @@ beans = {
 
     transactionManager(JmsTransactionManager, ref("jmsConnectionFactory")){
     }
+
+    demoModelRenderer(DemoModelRenderer)
 
 }

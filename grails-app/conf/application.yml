@@ -60,6 +60,8 @@ grails:
     spring:
         transactionManagement:
             proxies: false
+    servlet:
+        version: 3.0
 info:
     app:
         name: '@info.app.name@'
@@ -78,10 +80,7 @@ grails:
             accept:
                 header:
                     userAgents:
-                        - Gecko
-                        - WebKit
-                        - Presto
-                        - Trident
+
         types:
             all: '*/*'
             atom: application/atom+xml

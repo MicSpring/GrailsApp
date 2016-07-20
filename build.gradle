@@ -43,8 +43,9 @@ targetCompatibility = 1.7
 }*/
 
 ext{
-   // env=""
-    testProp=prop
+    env="dev"
+   // testProp=prop
+    testProp="dev"
 }
 
 configurations {
@@ -57,7 +58,7 @@ gretty {
     // 'jetty7', 'jetty8', 'jetty9', 'tomcat7', 'tomcat8'
 	 port = 8888
     servletContainer = 'jetty9'
-    jvmArgs = ["-Dgrails.env=$env"]
+    jvmArgs = ["-Dgrails.env=$env","-XX:MaxPermSize=128m"]
 
     /**
      * This jvmArg is used to set config location

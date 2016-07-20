@@ -35,8 +35,9 @@ logger("org.springframework.jms.config", DEBUG, ['STDOUT'], false)
 logger("org.springframework.jms.support", DEBUG, ['STDOUT'], false)
 logger("org.springframework.jms.support", DEBUG, ['STDOUT'], false)*/
 
-logger("org.springframework", DEBUG, ['FILE_APPENDER'], false)
+//logger("org.springframework", DEBUG, ['FILE_APPENDER'], false)
 logger("org.grails", DEBUG, ['FILE_APPENDER'], false)
+logger("grails", DEBUG, ['FILE_APPENDER'], false)
 
 def targetDir = BuildSettings.TARGET_DIR
 /*if (Environment.isDevelopmentMode() && targetDir) {
