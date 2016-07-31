@@ -21,7 +21,8 @@ class DemoModelRenderer extends AbstractRenderer<DemoModel> {
         println "DemoModelRenderer In RENDER ${context.getClass()}"
         try {
             context.contentType = MimeType.JSON.name
-            def json = StreamingJsonBuilder(context.writer)
+            //context.writer.write()
+            def json = new StreamingJsonBuilder(context.writer)
             println "Creating JSON......"
             json.ok {
                 n1 "okkk1"

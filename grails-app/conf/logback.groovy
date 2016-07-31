@@ -23,7 +23,7 @@ appender('FILE_APPENDER', RollingFileAppender) {
         maxFileSize = "5MB"
     }
         encoder(PatternLayoutEncoder) {
-        pattern = "%level %logger - %msg%n"
+        pattern = "%C -> %level %logger - %msg%n"
     }
 }
 
