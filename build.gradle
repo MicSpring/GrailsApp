@@ -43,7 +43,7 @@ targetCompatibility = 1.7
 }*/
 
 ext{
-    env="dev"
+    env="staging"
    // testProp=prop
     testProp="dev"
 }

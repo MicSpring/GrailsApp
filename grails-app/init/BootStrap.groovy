@@ -46,7 +46,7 @@ class BootStrap {
         println "MainContextClass Parent: ${mainContextBeans.getParent().getClass()}"
 
 
-       /* for(String beanName:mainContextBeans.getBeanDefinitionNames())
+        /*for(String beanName:mainContextBeans.getBeanDefinitionNames())
             print "${beanName} ,"*/
 
     }

@@ -24,4 +24,5 @@ class DemoModel implements Validateable{
     })
     int age;
     List<String> data
+    NewModel newModel
 }
