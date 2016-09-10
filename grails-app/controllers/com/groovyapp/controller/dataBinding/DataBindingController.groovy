@@ -2,6 +2,9 @@ package com.groovyapp.controller.dataBinding
 
 import com.groovyapp.domain.amqp.Message
 import com.groovyapp.util.model.DemoModel
+import com.groovyapp.jobs.*
+import grails.plugin.dropwizard.metrics.meters.Metered
+import grails.plugin.dropwizard.metrics.timers.Timed
 import grails.rest.RestfulController
 import grails.validation.Validateable
 import grails.web.servlet.mvc.GrailsParameterMap
@@ -13,6 +16,8 @@ import org.springframework.beans.factory.annotation.Autowired
 class DataBindingController extends RestfulController<DemoModel>{
 
     static responseFormats = ['json']
+
+    def dataBindingService
 
    DataBindingController() {
         super(DemoModel.class,true)
@@ -68,4 +73,30 @@ class DataBindingController extends RestfulController<DemoModel>{
         println "Name(GET): $name \n Age(GET): $age  \n DemoModel: $demoModel"
         render 'ok!!!'
     }
+
+    @Metered('Some Bind Data')
+    @Timed('Some Bind Data Timed')
+    def bindData(){
+        dataBindingService.bindData()
+        render "BinData Returned"
+    }
+
+    //This controller method Schedule a Job and trigger it
+    def triggerJob(){
+        try {
+            //MetricsMonitoringJob.schedule(5000l, 6, [me: "Doing Good"])
+            //MetricsMonitoringJob.triggerNow([me: "Doing Good", for: 6])
+            render "Job has been Scheduled to Run......."
+        }
+        catch(e){
+            e.printStackTrace()
+        }
+    }
+
+    /** Log exception */
+    private void logException(final Exception exception) {
+        //log.error "Exception occurred. ${exception?.message}", exception
+        exception.printStackTrace()
+    }
+
 }

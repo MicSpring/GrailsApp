@@ -113,6 +113,12 @@ dependencies {
     // https://mvnrepository.com/artifact/org.hibernate/hibernate-entitymanager
     compile "org.springframework:spring-core"
 
+    //Dropwizard Plugin for Metrics
+    compile "org.grails.plugins:dropwizard-metrics:1.0.0.BUILD-SNAPSHOT"
+
+    //Quartz plugin for Job Scheduling
+    compile "org.grails.plugins:quartz:2.0.0"
+
 }
 
 task wrapper(type: Wrapper) {
